@@ -1,8 +1,8 @@
 {
-  "name": "immobilien",
+  "name": "IoT-MA-Projekt",
   "version": "1.0.0",
-  "description": "app fot buying/renting and selling properties online",
-  "author": "Benjamin Brachmann",
+  "description": "Projekt fuer HSOS",
+  "author": "Benjamin Brachmann, Jan Seewald",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
