@@ -1,8 +1,11 @@
+import AppLanguageService from '../../modules/App-LanguageService/App-LanguageService.js'
+
 export default {
     name: 'app-nav',
     data: function() {
         return {
-            activeTab: '_'
+            activeTab: 'tab1',
+            names: null
         }
     },
         methods: {
@@ -17,5 +20,10 @@ export default {
             setActive: function(name) {
                 this.activeTab = name;
             }
+    },
+    created: function() {
+        const languageService = new AppLanguageService();
+        languageService.init('de');
+        this.names = languageService.load();
     }
 }

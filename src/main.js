@@ -16,9 +16,9 @@ import router from './router'
 import AppNav from './components/App-Nav/App-Nav.vue'
 
 // start observing App and reacting to events
-import AppObserver from './modules/App-Observer/App-Observer.js'
-const observer = new AppObserver();
-observer.observe();
+import AppLanguageService from './modules/App-LanguageService/App-LanguageService.js'
+const languageService = new AppLanguageService();
+languageService.init('de');
 
 /* eslint-disable no-new */
 new Vue({
