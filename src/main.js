@@ -23,7 +23,7 @@ languageService.init('de');
 /* eslint-disable no-new */
 new Vue({
     router,
-    template: '<div id="app"><router-view></router-view><app-nav></app-nav></div>',
+    template: '<div id="app"><app-nav></app-nav><router-view></router-view></div>',
     components: {
         AppNav
     }
