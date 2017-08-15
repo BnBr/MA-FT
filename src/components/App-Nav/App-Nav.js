@@ -4,8 +4,9 @@ export default {
     name: 'app-nav',
     data: function() {
         return {
+            languageService: null,
             activeTab: 'tab1',
-            names: null
+            
         }
     },
         methods: {
@@ -22,8 +23,6 @@ export default {
             }
     },
     created: function() {
-        const languageService = new AppLanguageService();
-        languageService.init('de');
-        this.names = languageService.load();
+        this.languageService = new AppLanguageService();
     }
 }

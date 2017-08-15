@@ -1,9 +1,9 @@
 <div class="app-nav">
     <div class="tabs is-centered">
       <ul>
-        <li v-on:click="setActive('tab0')" v-bind:class="{'is-active': isActive('tab0')}"><a>{{names.programs}}</a></li>
-        <li v-on:click="setActive('tab1')" v-bind:class="{'is-active': isActive('tab1')}"><a>{{names.smartObjects}}</a></li>
-        <li v-on:click="setActive('tab2')" v-bind:class="{'is-active': isActive('tab2')}"><a>{{names.settings}}</a></li>
+        <li v-on:click="setActive('tab0')" v-bind:class="{'is-active': isActive('tab0')}"><a>{{languageService.getWordFor('programs')}}</a></li>
+        <li v-on:click="setActive('tab1')" v-bind:class="{'is-active': isActive('tab1')}"><a>{{languageService.getWordFor('smartObjects')}}</a></li>
+        <li v-on:click="setActive('tab2')" v-bind:class="{'is-active': isActive('tab2')}"><a>{{languageService.getWordFor('settings')}}</a></li>
       </ul>
     </div>
 </div>

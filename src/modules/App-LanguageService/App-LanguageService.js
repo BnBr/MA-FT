@@ -1,27 +1,37 @@
-
 export default class AppLanguageService {
     //*****************************************//
     //  LANGUAGE SERVICE
     //*****************************************//
-    
-    init = function(langName) {
+
+    init = function (langName) {
         try {
-            var imported = document.createElement('script');
-            imported.src = './languagesData/' + langName + '.js';
-            document.head.appendChild(imported);
-            loadedData = getLanguageData();
-        } catch(e) {
-            
+            loadedLanguageData = getLanguageData(langName);
+        } catch (e) {
+
         }
     };
 
-    load = function(){
-        //hier würde die aktuelle geladene Sprache zurückgegeben werden
-        return this.loadedData;
+    getWordFor = function (word) {
+        return loadedLanguageData[word];
     };
-    
-    loadedData = null;
 
+};
 
-}
-   
+let loadedLanguageData = null;
+
+function getLanguageData(langName) {
+    let assObj = {};
+    switch (langName) {
+        case 'de':
+            assObj['programs'] = 'Programme';
+            assObj['smartObjects'] = 'Smart Objects';
+            assObj['settings'] = 'Einstellungen';
+            break;
+        case 'en':
+            assObj['programs'] = 'Programs';
+            assObj['smartObjects'] = 'Smart Objects';
+            assObj['settings'] = 'Settings';
+            break;
+    }
+    return assObj;
+};
