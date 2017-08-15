@@ -1,3 +1,5 @@
+import AppMQTTService from '../../modules/App-MQTT-Service/App-MQTT-Service.js'
+
 
 export default {
     name: 'app--sm-list',
@@ -32,7 +34,8 @@ export default {
 
     },
     created: function() {
-        
+        const mqttService  = new AppMQTTService();
+        mqttService.init();
     },
     mounted: function() {
         this.setListeners();
