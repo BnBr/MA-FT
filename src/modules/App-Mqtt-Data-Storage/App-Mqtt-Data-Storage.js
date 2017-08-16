@@ -28,7 +28,6 @@ export default class AppDataStorage {
     updateSM = function (topic, messageObj, partsOfStr) {
         if (messageObj == null) return;
         this.updateGateway(topic, {}, partsOfStr);
-
         if (storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]] == null) {
             storageLog('NEW SMART-OBJECT REGISTERED');
             storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]] = {
@@ -36,6 +35,7 @@ export default class AppDataStorage {
                 data: {},
                 information: {},
                 action: {},
+                SMTopic: topic
             };
         } else {
             storageLog('SMART-OBJECT DATA UPDATED');

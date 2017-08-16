@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1.13988,0,0,1.13988,37.8428,53.6979)">
+        <path d="M124.023,-11.726C124.023,-21.19 116.34,-28.873 106.876,-28.873L2.184,-28.873C-7.28,-28.873 -14.964,-21.19 -14.964,-11.726L-14.964,92.966C-14.964,102.43 -7.28,110.114 2.184,110.114L106.876,110.114C116.34,110.114 124.023,102.43 124.023,92.966L124.023,-11.726Z" style="fill:none;stroke:black;stroke-width:8.77px;"/>
+    </g>
+    <g transform="matrix(0.918778,0,0,0.918778,-50.4177,-14.8023)">
+        <text x="96.359px" y="122.1px" style="font-family:'Verdana-Bold', 'Verdana', sans-serif;font-weight:700;font-size:36px;">SMART</text>
+        <text x="89.934px" y="154.1px" style="font-family:'Verdana-Bold', 'Verdana', sans-serif;font-weight:700;font-size:36px;">OBJECT</text>
+    </g>
+    <g transform="matrix(1,0,0,1,-12.8495,14.4207)">
+        <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        <g transform="matrix(1,0,0,1,16.2552,0)">
+            <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,32.5104,0)">
+            <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        </g>
+    </g>
+    <g transform="matrix(1,0,0,1,73.9757,138.882)">
+        <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        <g transform="matrix(1,0,0,1,16.2552,0)">
+            <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,32.5104,0)">
+            <path d="M53.182,40.332L53.182,6.365" style="fill:none;stroke:black;stroke-width:10px;stroke-linecap:square;"/>
+        </g>
+    </g>
+</svg>

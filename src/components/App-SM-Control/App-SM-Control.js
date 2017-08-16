@@ -7,7 +7,7 @@ export default {
     data: function () {
         return {
             storageData: null,
-            languageService: null
+            languageService: null,
         }
     },
     methods: {
@@ -35,8 +35,7 @@ export default {
     computed: {
 
     },
-    created: function () {
-        console.log(this.SMTopic);
+    created: function () {        
         const that = this;
         const mqttDataStorage = new AppMQTTDataStorage();
         mqttDataStorage.setChangeEvent(function (storage) {

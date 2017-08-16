@@ -24,14 +24,22 @@
                                             <div class="content">
                                                 <p v-if="valueSM.information.I0">
                                                     <strong>{{valueSM.information.I0.name}}</strong>
-                                                    <small>Gateway: {{keyG}}@{{valueG.location}}</small>
+                                                    <small>{{keyG}}@{{valueG.location}}</small>
+                                                    <small v-if="valueSM.information.I0.type == 'SMARTOBJECT'" class="is-pulled-right">
+                                                        <img class="app-sm-list-icon" src="../../assets/svg/icon-sm.svg"><img>
+                                                    </small>
+                                                    <small v-if="valueSM.information.I0.type == 'CAMERA'" class="is-pulled-right">
+                                                        <img class="app-sm-list-icon" src="../../assets/svg/icon-camera.svg"><img>
+                                                    </small>
                                                     <br>{{valueSM.information.I0.description}}
                                                 </p>
                                             </div>
                                             <nav class="level is-mobile">
                                                 <div class="level-right">
                                                     <p class="level-item ">
-                                                        <a class="button is-primary is-outlined" v-on:click="controlSM(keySM)">{{languageService.getWordFor('control')}}</a>
+                                                        <router-link :to="'/control/' + storageData.server.name + '#' + keyG + '#' + keySM">
+                                                            <a class="button is-primary is-outlined">{{languageService.getWordFor('control')}}</a>
+                                                        </router-link>
                                                     </p>
                                                     <p class="level-item ">
                                                         <label class="checkbox">
