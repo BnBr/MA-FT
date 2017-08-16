@@ -15,10 +15,15 @@ import router from './router'
 // static components not used by router
 import AppNav from './components/App-Nav/App-Nav.vue'
 
-// start observing App and reacting to events
+// language support
 import AppLanguageService from './modules/App-LanguageService/App-LanguageService.js'
 const languageService = new AppLanguageService();
 languageService.init('de');
+
+// mqtt service init
+import AppMQTTService from './modules/App-MQTT-Service/App-MQTT-Service.js'
+const mqttService = new AppMQTTService();
+mqttService.init();
 
 /* eslint-disable no-new */
 new Vue({

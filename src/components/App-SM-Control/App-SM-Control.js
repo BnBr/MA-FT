@@ -2,7 +2,8 @@ import AppMQTTDataStorage from '../../modules/App-MQTT-Data-Storage/App-MQTT-Dat
 import AppLanguageService from '../../modules/App-LanguageService/App-LanguageService.js'
 
 export default {
-    name: 'app-sm-list',
+    name: 'app-sm-control',
+    props: ['SMTopic'],
     data: function () {
         return {
             storageData: null,
@@ -23,26 +24,22 @@ export default {
 
         },
         
-        controlSM(keySM) {
-          console.log('You are now controlling ' + keySM + '.'); 
-        },
-
         removeListeners: function () {
             window.removeEventListener('onresize', this.resizeEvent);
             window.removeEventListener('orientationchange', this.orientationchangeEvent);
         }
     },
     ready: {
-
+        
     },
     computed: {
 
     },
     created: function () {
+        console.log(this.SMTopic);
         const that = this;
         const mqttDataStorage = new AppMQTTDataStorage();
         mqttDataStorage.setChangeEvent(function (storage) {
-            //that.storageData = storage;
             that.storageData = Object.assign({}, that.storageData, storage);
         });
         this.languageService = new AppLanguageService();

@@ -1,3 +1,55 @@
 <div class="app-sm-list">
-
+    <section class="section">
+        <span v-if="storageData != null && storageData.server != null">
+            <span v-if="storageData.server.gateways">
+                <div v-for="(valueG, keyG) in storageData.server.gateways">
+                    <nav class="level">
+                        <div class="level-item has-text-centered">
+                            <div>
+                                <p class="heading" v-if="valueG.location">
+                                    {{valueG.location}}
+                                </p>
+                                <p class="title" v-if="valueG.name">
+                                    {{valueG.name}}
+                                </p>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="columns is-multiline is-centered">
+                        <span v-for="(valueSM, keySM) in storageData.server.gateways[keyG].sms">
+                            <span class="container column is-fluid">
+                                <div class="box">
+                                    <article class="media">
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p v-if="valueSM.information.I0">
+                                                    <strong>{{valueSM.information.I0.name}}</strong>
+                                                    <small>Gateway: {{keyG}}@{{valueG.location}}</small>
+                                                    <br>{{valueSM.information.I0.description}}
+                                                </p>
+                                            </div>
+                                            <nav class="level is-mobile">
+                                                <div class="level-right">
+                                                    <p class="level-item ">
+                                                        <a class="button is-primary is-outlined" v-on:click="controlSM(keySM)">{{languageService.getWordFor('control')}}</a>
+                                                    </p>
+                                                    <p class="level-item ">
+                                                        <label class="checkbox">
+                                                      <input type="checkbox">
+                                                       {{languageService.getWordFor('multiview')}}
+                                                    </label>
+                                                    </p>
+                                                </div>
+                                            </nav>
+                                        </div>
+                                    </article>
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                    <hr>
+                </div>
+            </span>
+        </span>
+    </section>
 </div>

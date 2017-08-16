@@ -26,11 +26,15 @@ function getLanguageData(langName) {
             assObj['programs'] = 'Programme';
             assObj['smartObjects'] = 'Smart Objects';
             assObj['settings'] = 'Einstellungen';
+            assObj['control'] = 'Fernsteuern';
+            assObj['multiview'] = 'Mehrfachansicht';
             break;
         case 'en':
             assObj['programs'] = 'Programs';
             assObj['smartObjects'] = 'Smart Objects';
             assObj['settings'] = 'Settings';
+            assObj['control'] = 'Control';
+            assObj['multiview'] = 'Multiview';
             break;
     }
     return assObj;
