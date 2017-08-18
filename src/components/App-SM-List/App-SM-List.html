@@ -1,5 +1,5 @@
-<div class="app-sm-list">
-    <section class="section">
+<div class="app-sm-list" style="padding-top: 50px;">
+    <section class="container column is-fluid">
         <span v-if="storageData != null && storageData.server != null">
             <span v-if="storageData.server.gateways">
                 <div v-for="(valueG, keyG) in storageData.server.gateways">
@@ -18,11 +18,11 @@
                     <div class="columns is-multiline is-centered">
                         <span v-for="(valueSM, keySM) in storageData.server.gateways[keyG].sms">
                             <span class="container column is-fluid">
-                                <div class="box">
+                                <div v-if="valueSM.information.I0" class="box">
                                     <article class="media">
                                         <div class="media-content">
                                             <div class="content">
-                                                <p v-if="valueSM.information.I0">
+                                                <p>
                                                     <strong>{{valueSM.information.I0.name}}</strong>
                                                     <small>{{keyG}}@{{valueG.location}}</small>
                                                     <small v-if="valueSM.information.I0.type == 'SMARTOBJECT'" class="is-pulled-right">
@@ -37,7 +37,7 @@
                                             <nav class="level is-mobile">
                                                 <div class="level-right">
                                                     <p class="level-item ">
-                                                        <router-link :to="'/control/' + storageData.server.name + '#' + keyG + '#' + keySM">
+                                                        <router-link :to="'/control/' + storageData.server.name + '-' + keyG + '-' + keySM">
                                                             <a class="button is-primary is-outlined">{{languageService.getWordFor('control')}}</a>
                                                         </router-link>
                                                     </p>

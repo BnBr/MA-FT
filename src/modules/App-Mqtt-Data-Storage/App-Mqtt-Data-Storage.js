@@ -34,8 +34,7 @@ export default class AppDataStorage {
                 functions: {},
                 data: {},
                 information: {},
-                action: {},
-                SMTopic: topic
+                action: {}
             };
         } else {
             storageLog('SMART-OBJECT DATA UPDATED');
@@ -183,6 +182,7 @@ export default class AppDataStorage {
 
     setChangeEvent = function(callback) {
         onChangeCallback = callback;
+        this.dataWasChanged();
     };
 
     dataWasChanged = function () {
@@ -203,5 +203,5 @@ let storage = {
 };
 
 var storageLog = function (text) {
-    console.info('STORAGE [' + new Date().toISOString() + '] : ' + text);
+    //console.info('STORAGE [' + new Date().toISOString() + '] : ' + text);
 }

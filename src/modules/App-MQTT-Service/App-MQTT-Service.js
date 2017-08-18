@@ -161,5 +161,5 @@ let serverTopic = 'S1/#';
 let mobileDeviceTopic = 'S1/MD/' + options.clientId;
 
 let mqttLog = function (text) {
-    console.info('MQTT [' + new Date().toISOString() +'] : ' + text);
+    //console.info('MQTT [' + new Date().toISOString() +'] : ' + text);
 };

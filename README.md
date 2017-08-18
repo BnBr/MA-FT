@@ -1,6 +1,4 @@
-# immobilien
-
-> app for buying/renting and selling properties online
+# IoT-MA-Projekt
 
 ## Build Setup
 

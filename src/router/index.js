@@ -5,6 +5,7 @@ import Router from 'vue-router'
 // .vue ending is important, since there are js, css and html files named like it
 import AppSMList from '../components/App-SM-List/App-SM-List.vue'
 import AppSMControl from '../components/App-SM-Control/App-SM-Control.vue'
+import AppSettings from '../components/App-Settings/App-Settings.vue'
 
 
 
@@ -23,6 +24,12 @@ export default new Router({
             name: 'App-SM-Control',
             component: AppSMControl,
             props: true
+        },
+        {
+            path: '/settings',
+            name: 'App-Settings',
+            component: AppSettings,
+            props: {}
         }
     ]
 })

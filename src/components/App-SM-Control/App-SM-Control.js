@@ -8,6 +8,8 @@ export default {
         return {
             storageData: null,
             languageService: null,
+            isSMTopicReadable: false,
+            SMData: null
         }
     },
     methods: {
@@ -22,6 +24,35 @@ export default {
 
         orientationchangeEvent: function () {
 
+        },
+        
+        checkForSMUpdate: function() {
+            try {
+                let partsOfTopic = this.convertSMTopicIntoArray();
+                if(partsOfTopic.length > 0) {
+                    if(this.storageData && this.storageData.server && this.storageData.server.gateways) {
+                        if(this.storageData.server.gateways[partsOfTopic[1]] != null) {
+                            if(this.storageData.server.gateways[partsOfTopic[1]].sms[partsOfTopic[2]] != null) {
+                                this.updateSM(this.storageData.server.gateways[partsOfTopic[1]].sms[partsOfTopic[2]]);
+                            }
+                        }
+                    }
+                }
+            } catch(e) {
+                
+            }
+        },
+            
+        updateSM: function(data) {
+            this.SMData = Object.assign({}, this.SMData, data);
+        },
+        
+        convertSMTopicIntoArray: function() {
+            if(this.SMTopic == null || this.SMTopic == undefined) {
+                return [];
+            } else {
+                return this.SMTopic.split('-');
+            }
         },
         
         removeListeners: function () {
@@ -40,6 +71,7 @@ export default {
         const mqttDataStorage = new AppMQTTDataStorage();
         mqttDataStorage.setChangeEvent(function (storage) {
             that.storageData = Object.assign({}, that.storageData, storage);
+            that.checkForSMUpdate();
         });
         this.languageService = new AppLanguageService();
     },

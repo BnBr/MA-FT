@@ -22,10 +22,6 @@ export default {
         orientationchangeEvent: function () {
 
         },
-        
-        controlSM(keySM) {
-          console.log('You are now controlling ' + keySM + '.'); 
-        },
 
         removeListeners: function () {
             window.removeEventListener('onresize', this.resizeEvent);

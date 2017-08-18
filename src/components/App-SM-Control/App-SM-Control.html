@@ -1,7 +1,110 @@
-<div class="app-sm-list">
-    <section class="section">
-        <span v-if="storageData != null && storageData.server != null && lookedAtSM != null">
-            {{lookedAtSM}}
+<div class="app-sm-list" style="padding-top: 50px;">
+        <span class="container" v-if="SMData != null && SMData.information.I0 != null">
+            <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">{{languageService.getWordFor('name')}}</p>
+                        <p class="title">{{SMData.information.I0.name}}</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                   <div>
+                        <p class="heading">{{languageService.getWordFor('status')}}</p>
+                        <p v-if="SMData.information.I0.status == 'READY'" class="title">{{languageService.getWordFor('ready')}}</p>
+                        <p v-if="SMData.information.I0.status == 'BUSY'" class="title">{{languageService.getWordFor('busy')}}</p>
+                        <p v-if="SMData.information.I0.status == 'OFFLINE'" class="title">{{languageService.getWordFor('offline')}}</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div>
+                        <p class="heading">{{languageService.getWordFor('type')}}</p>
+                        <p v-if="SMData.information.I0.type == 'CAMERA'" class="title">{{languageService.getWordFor('camera')}}</p>
+                        <p v-if="SMData.information.I0.type == 'SMARTOBJECT'" class="title">{{languageService.getWordFor('smartobject')}}</p>
+                    </div>
+                </div>
+            </nav>
+           <span v-if="SMData.data != null" class="container column is-fluid">
+                <div class="box">
+                   <p class="heading">{{languageService.getWordFor('description')}}</p>
+                    <article class="media">
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <br>{{SMData.information.I0.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="box">
+                   <p class="heading">{{languageService.getWordFor('sensors')}}</p>
+                    <article class="media" v-for="(valueSMD, keySMD) in SMData.data">
+                        <div class="media-content">
+                           <div class="content">
+                                <p>
+                                    <div v-if="valueSMD.parameter_type == 'BOOLEAN'">
+                                         <strong>{{valueSMD.name}}</strong>
+                                         <span class="is-pulled-right">
+                                              <span class="tag" style="border-radius: 0;">{{languageService.getWordFor('value')}}:</span>
+                                              <span v-if="valueSMD.value == '1'" class="tag is-primary" style="border-radius: 0;">1</span>
+                                              <span v-if="valueSMD.value == '0'" class="tag is-danger" style="border-radius: 0;">0</span>
+                                          </span>
+                                    </div>
+                                    <div v-if="valueSMD.parameter_type == 'STRING'" class="content">
+                                       <strong>{{valueSMD.name}}</strong>
+                                        <article class="message">
+                                          <div class="message-body">
+                                           {{valueSMD.value}}
+                                          </div>
+                                        </article>
+                                    </div>
+                                    <div v-if="valueSMD.parameter_type == 'DOUBLE' || valueSMD.parameter_type == 'INTEGER'">
+                                        <strong>{{valueSMD.name}}</strong>
+                                        <span class="is-pulled-right">
+                                        {{languageService.getWordFor('min')}}: <strong>{{valueSMD.min}}</strong>
+                                        {{languageService.getWordFor('value')}}: <strong>{{valueSMD.value}}</strong>
+                                        {{languageService.getWordFor('max')}}: <strong>{{valueSMD.max}}</strong>
+                                        </span>
+                                        <progress class="progress is-medium is-primary" v-bind:value="Number(valueSMD.value) - Number(valueSMD.min)" v-bind:max="Number(valueSMD.max) - Number(valueSMD.min)"></progress>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="box">
+                   <p class="heading">{{languageService.getWordFor('actuators')}}</p>
+                    <article class="media"  v-for="(valueSMF, keySMF) in SMData.functions">
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <div v-if="valueSMF.parameter_type == 'INTEGER'">
+                                         <strong>{{valueSMF.name}}</strong>
+                                    </div>
+                                    <div v-if="valueSMF.parameter_type == 'DOUBLE'">
+                                         <strong>{{valueSMF.name}}</strong>
+                                    </div>
+                                    <div v-if="valueSMF.parameter_type == 'STRING'">
+                                         <strong>{{valueSMF.name}}</strong>
+                                    </div>
+                                    <div v-if="valueSMF.parameter_type == 'BOOLEAN'">
+                                         <strong>{{valueSMF.name}}</strong>
+                                         <span class="is-pulled-right">
+                                         <a class="button is-primary">1</a>
+                                         <a class="button is-danger">0</a>
+                                        </span>
+                                    </div>
+                                    <div v-if="valueSMF.parameter_type == 'NONE'">
+                                         <strong>{{valueSMF.name}}</strong>
+                                         <span class="is-pulled-right ">
+                                         <a class="button is-loading">{{languageService.getWordFor('trigger')}}</a>
+                                        </span>
+                                    </div>
+                                </p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </span>
         </span>
-    </section>
 </div>
