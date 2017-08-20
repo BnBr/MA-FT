@@ -78,26 +78,64 @@
                         <div class="media-content">
                             <div class="content">
                                 <p>
-                                    <div v-if="valueSMF.parameter_type == 'INTEGER'">
-                                         <strong>{{valueSMF.name}}</strong>
+                                  <div v-if="valueSMF.parameter_type == 'INTEGER'">
+                                        <strong>{{valueSMF.name}}</strong>
+                                        <span class="is-pulled-right">
+                                            <div class="field has-addons">
+                                                <div class="control">
+                                                    <input class="input" type="text" :placeholder="languageService.getWordFor('pleaseinsert') + ': ' + languageService.getWordFor('integer')" v-model="valueSMF.input">
+                                                </div>
+                                                <div class="control">
+                                                    <a class="button" v-on:click="clickAction(keySMF, valueSMF.input, 'INTEGER')" v-bind:class="{'is-loading': isClickId(keySMF)}">
+                                                        {{languageService.getWordFor('trigger')}} 
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div v-if="valueSMF.parameter_type == 'DOUBLE'">
                                          <strong>{{valueSMF.name}}</strong>
+                                         <span class="is-pulled-right">
+                                            <div class="field has-addons">
+                                                <div class="control">
+                                                    <input class="input" type="text" :placeholder="languageService.getWordFor('pleaseinsert') + ': ' + languageService.getWordFor('double')" v-model="valueSMF.input">
+                                                </div>
+                                                <div class="control">
+                                                    <a class="button" v-on:click="clickAction(keySMF, valueSMF.input, 'DOUBLE')" v-bind:class="{'is-loading': isClickId(keySMF)}">
+                                                        {{languageService.getWordFor('trigger')}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div v-if="valueSMF.parameter_type == 'STRING'">
                                          <strong>{{valueSMF.name}}</strong>
+                                         <span class="is-pulled-right">
+                                            <div class="field has-addons">
+                                                <div class="control">
+                                                    <input class="input" type="text" :placeholder="languageService.getWordFor('pleaseinsert') + ': ' + languageService.getWordFor('string')" v-model="valueSMF.input">
+                                                </div>
+                                                <div class="control">
+                                                    <a class="button" v-on:click="clickAction(keySMF, valueSMF.input, 'STRING')" v-bind:class="{'is-loading': isClickId(keySMF)}">
+                                                        {{languageService.getWordFor('trigger')}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div v-if="valueSMF.parameter_type == 'BOOLEAN'">
                                          <strong>{{valueSMF.name}}</strong>
                                          <span class="is-pulled-right">
-                                         <a class="button is-primary">1</a>
-                                         <a class="button is-danger">0</a>
+                                         <a class="button is-primary" v-on:click="clickAction(keySMF, true, 'BOOLEAN')" v-bind:class="{'is-loading': isClickId(keySMF)}">1</a>
+                                         <a class="button is-danger" v-on:click="clickAction(keySMF, false, 'BOOLEAN')" v-bind:class="{'is-loading': isClickId(keySMF)}">0</a>
                                         </span>
                                     </div>
                                     <div v-if="valueSMF.parameter_type == 'NONE'">
                                          <strong>{{valueSMF.name}}</strong>
                                          <span class="is-pulled-right ">
-                                         <a class="button is-loading">{{languageService.getWordFor('trigger')}}</a>
+                                         <a class="button" v-on:click="clickAction(keySMF, '', 'NONE')" v-bind:class="{'is-loading': isClickId(keySMF)}">
+                                             {{languageService.getWordFor('trigger')}}
+                                         </a>
                                         </span>
                                     </div>
                                 </p>

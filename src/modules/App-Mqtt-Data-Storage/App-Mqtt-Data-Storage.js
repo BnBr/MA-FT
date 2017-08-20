@@ -47,7 +47,6 @@ export default class AppDataStorage {
 
     updateSMA = function (topic, messageObj, partsOfStr) {
         if (messageObj == null) return;
-        this.updateGateway(topic, {}, partsOfStr);
         this.updateSM(topic, {}, partsOfStr);
 
         if (storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]].action[partsOfStr[3]] == null) {
@@ -61,7 +60,6 @@ export default class AppDataStorage {
 
     updateSMF = function (topic, messageObj, partsOfStr) {
         if (messageObj == null) return;
-        this.updateGateway(topic, {}, partsOfStr);
         this.updateSM(topic, {}, partsOfStr);
 
         if (storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]].functions[partsOfStr[3]] == null) {
@@ -75,7 +73,6 @@ export default class AppDataStorage {
 
     updateSMD = function (topic, messageObj, partsOfStr) {
         if (messageObj == null) return;
-        this.updateGateway(topic, {}, partsOfStr);
         this.updateSM(topic, {}, partsOfStr);
 
         if (storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]].data[partsOfStr[3]] == null) {
@@ -89,7 +86,6 @@ export default class AppDataStorage {
 
     updateSMI = function (topic, messageObj, partsOfStr) {
         if (messageObj == null) return;
-        this.updateGateway(topic, {}, partsOfStr);
         this.updateSM(topic, {}, partsOfStr);
 
         if (storage.server.gateways[partsOfStr[1]].sms[partsOfStr[2]].information[partsOfStr[3]] == null) {
@@ -203,5 +199,5 @@ let storage = {
 };
 
 var storageLog = function (text) {
-    //console.info('STORAGE [' + new Date().toISOString() + '] : ' + text);
+    console.info('STORAGE [' + new Date().toISOString() + '] : ' + text);
 }

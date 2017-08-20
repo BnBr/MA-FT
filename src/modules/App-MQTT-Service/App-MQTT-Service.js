@@ -28,6 +28,21 @@ export default class AppMQTTService {
         })
     };
 
+    sendAction = function(SMTopic, functionId, parameters) {
+        try {
+            let toSendObj = {
+                functionName: String(functionId),
+                parameters: String(parameters)
+            };
+            client.publish((SMTopic + '/A0'), JSON.stringify(toSendObj));
+
+            mqttLog('Sent to: ' + (SMTopic + '/A0'));
+            console.log(toSendObj);
+        } catch(e) {
+            throw e;
+        }
+    };
+
     subscribeToInformationTopic = function (client) {
         client.subscribe(mobileDeviceTopic);
         client.publish(mobileDeviceTopic, 'GET_ALL_DEVICES');
@@ -161,5 +176,5 @@ let serverTopic = 'S1/#';
 let mobileDeviceTopic = 'S1/MD/' + options.clientId;
 
 let mqttLog = function (text) {
-    //console.info('MQTT [' + new Date().toISOString() +'] : ' + text);
+    console.info('MQTT [' + new Date().toISOString() +'] : ' + text);
 };

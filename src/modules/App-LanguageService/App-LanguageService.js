@@ -56,6 +56,10 @@ function getLanguageData(langName) {
             assObj['trigger'] = 'Ausführen';
             assObj['languageselection'] = 'Sprachauswahl';
             assObj['selection'] = 'Auswahl';
+            assObj['pleaseinsert'] = 'Eingeben';
+            assObj['cantdothis'] = 'Überprüfe deine Eingaben';
+            assObj['inputtoosmall'] = 'Eingabe ist zu klein';
+            assObj['inputtoobig'] = 'Eingabe ist zu groß';
             break;
         case 'en':
             assObj['programs'] = 'Programs';
@@ -82,8 +86,12 @@ function getLanguageData(langName) {
             assObj['boolean'] = 'Boolean';
             assObj['double'] = 'Double/Float';
             assObj['trigger'] = 'Trigger';
-            assObj['languageselection'] = 'Select language';
+            assObj['languageselection'] = 'Selected language';
             assObj['selection'] = 'Selection';
+            assObj['pleaseinsert'] = 'Insert';
+            assObj['cantdothis'] = 'Sorry, can`t do this';
+            assObj['inputtoosmall'] = 'Your input value is too small';
+            assObj['inputtoobig'] = 'Your input value is too big';
             break;
     }
     return assObj;
