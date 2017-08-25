@@ -20,6 +20,17 @@ export default {
             
             setActive: function(name) {
                 this.activeTab = name;
+                switch(name) {
+                    case 'tab0':
+                        this.$router.push('/programs');
+                        break;
+                    case 'tab1':
+                        this.$router.push('/');
+                        break;
+                    case 'tab2':
+                        this.$router.push('/settings');
+                        break;
+                }
             }
     },
     created: function() {

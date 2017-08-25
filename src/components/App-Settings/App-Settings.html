@@ -1,0 +1,32 @@
+<div class="app-settings" style="padding-top: 50px;">
+    <span class="container">
+   <nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="heading">{{languageService.getWordFor('languageselection')}}</p>
+                <p class="title" v-if="selectedLanguage == 'de'">Deutsch</p>
+                <p class="title" v-if="selectedLanguage == 'en'">English</p>
+            </div>
+        </div>
+    </nav>
+    <span class="container column is-fluid">
+    <div class="box">
+           <p class="heading">{{languageService.getWordFor('selection')}}:</p>
+            <article class="media">
+                <div class="media-content">
+                    <div class="content">
+                        <p>
+                          <small>
+                            <img class="app-settings-language-icon" src="../../assets/svg/icon-lang-de.svg" v-on:click="selectLanguage('de')"><img>
+                          </small>  
+                          <small>
+                            <img class="app-settings-language-icon" src="../../assets/svg/icon-lang-en.svg" v-on:click="selectLanguage('en')"><img>
+                          </small>  
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </span>
+    </span>
+</div>
