@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Server</title>
+        <style>
+            body {
+                background-color: black;
+            }
+
+            h1 {
+                color: aquamarine;
+                font-size: 100px;
+            }
+
+            #container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                border-top: 0px;
+                border-bottom: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+    <div id='container'>
+
+    </div>
+        <script>
+          var container = document.getElementById('container');
+          var fs = require('../node_modules/fs');
+          var mqttServer = require('../node_modules/mqtt-server');
+          var storage = {};
+
+
+          mqttServer({
+            mqtt: 'tcp://localhost:1883',
+            mqtts: 'ssl://localhost:8883',
+            mqttws: 'ws://localhost:1884',
+            mqtwss: 'wss://localhost:8884'
+          }, {
+            ssl: {
+              key: fs.readFileSync('./server.key'),
+              cert: fs.readFileSync('./server.crt')
+            },
+            emitEvents: true // default
+          }, function(client){
+            client.connack({
+              returnCode: 0
+            });
+          });
+
+          servers.listen(function(){
+            console.log('listening!');
+          });
+
+
+
+
+
+        </script>
+    </body>
+</html>

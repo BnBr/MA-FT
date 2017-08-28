@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Server</title>
+        <style>
+            body {
+                background-color: black;
+            }
+
+            h1 {
+                color: aquamarine;
+                font-size: 100px;
+            }
+
+            #container {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                border-top: 0px;
+                border-bottom: 0px;
+                border-left: 0px;
+                border-right: 0px;
+                background-color: aquamarine;
+            }
+        </style>
+    </head>
+    <body>
+    <div id='container'>
+
+    </div>
+        <script>
+            var container = document.getElementById('container');
+            var storage = {};
+            var http    = require('http')
+              , mosca = require('../node_modules/mosca')
+              , mqttServ = new mosca.Server({});
+
+
+
+            var settings = {
+              port: 1888,
+              http:{
+                port: 3000,
+                bundle: true
+              }
+            };
+
+            var server = new mosca.Server(settings);
+
+            server.on('clientConnected', function(client) {
+              //console.log(client.id);
+            });
+
+            // fired when a message is received
+            server.on('published', function(packet, client) {
+              //console.log(packet);
+            });
+
+            server.on('ready', setup);
+
+            // fired when the mqtt server is ready
+            function setup() {
+            //console.log('Mosca server is up and running');
+            }
+
+
+
+
+        </script>
+    </body>
+</html>
