@@ -163,7 +163,7 @@ def initPublish():
     #Publish Sensors and Functions
     pubAllSensors()
     pubAllFunctions()
-    helper.postingStuff(mqttClient) #for debugging and demonstration
+
 
 def motorInit():
     print("Init Motor X")
